@@ -1,0 +1,11 @@
+{
+  "id": 1,
+  "title": "Book 1",
+  "year": 1831,
+  "genre": "Story",
+  "author": {
+    "id": 1,
+    "name": "Author 1",
+    "birthYear": 1801
+  }
+}
