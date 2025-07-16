@@ -1,6 +1,5 @@
 package com.app.book_service.mappers.author;
 import com.app.book_service.entities.Author;
-import com.app.book_service.mappers.book.BookMapperDelegate;
 import com.app.book_service.web.models.author.AuthorRequest;
 import com.app.book_service.web.models.author.AuthorResponse;
 import org.mapstruct.DecoratedWith;

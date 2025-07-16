@@ -1,4 +1,5 @@
 package com.app.book_service.web.controllers;
+import com.app.book_service.entities.Author;
 import com.app.book_service.mappers.author.AuthorMapper;
 import com.app.book_service.services.AuthorService;
 import com.app.book_service.web.models.author.AuthorFilter;
@@ -6,6 +7,7 @@ import com.app.book_service.web.models.author.AuthorRequest;
 import com.app.book_service.web.models.author.AuthorResponse;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
@@ -18,10 +20,11 @@ public class AuthorController {
 
     private final AuthorMapper authorMapper;
 
+    @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
     public AuthorResponse createAuthor(@RequestBody @Valid AuthorRequest authorRequest) {
-        return authorMapper.authorToAuthorResponse(authorService
-                .createAuthor(authorMapper.authorRequestToAuthor(authorRequest)));
+        Author author =  authorService.createAuthor(authorMapper.authorRequestToAuthor(authorRequest));
+        return authorMapper.authorToAuthorResponse(author);
     }
 
     @GetMapping("/{id}")

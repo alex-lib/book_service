@@ -5,6 +5,7 @@ import com.app.book_service.web.models.book.BookRequest;
 import com.app.book_service.web.models.book.BookResponse;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
@@ -17,6 +18,7 @@ public class BookController {
 
    private final BookMapper bookMapper;
 
+   @ResponseStatus(HttpStatus.CREATED)
    @PostMapping
    public BookResponse createBook(@RequestBody @Valid BookRequest bookRequest) {
         return bookMapper.bookToBookResponse(bookService
@@ -35,6 +37,7 @@ public class BookController {
                 .updateBook(id, bookMapper.bookRequestToBook(id, bookRequest)));
    }
 
+   @ResponseStatus(HttpStatus.NO_CONTENT)
    @DeleteMapping("/{id}")
     public void deleteBook(@PathVariable Long id) {
        bookService.deleteBook(id);

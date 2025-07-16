@@ -46,6 +46,7 @@ public class AuthorServiceImpl implements AuthorService {
     @Override
     public Author findAuthorByName(String name) {
         return authorRepository.findByName(name)
-                .orElseThrow(() -> new EntityNotFoundException("Author not found with name: " + name));
+                .orElseThrow(() -> new EntityNotFoundException("Author not found with name: " + name
+                        + ". Before creating book i must create author."));
     }
 }

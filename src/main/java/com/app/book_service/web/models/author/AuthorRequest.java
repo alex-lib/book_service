@@ -1,11 +1,10 @@
 package com.app.book_service.web.models.author;
 import jakarta.annotation.Nullable;
 import jakarta.validation.constraints.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
+@ToString
+@Builder
 @Getter
 @Setter
 @NoArgsConstructor
